@@ -10,16 +10,29 @@ function mergeSort(arr) {
         merge(both arrays)
     
     */
-    let result = []
-    let mid = Math.ceil(arr.length / 2)
-    let left = arr.slice(0, mid)
-    let right = arr.slice(mid, arr.length)
 
-    while (mid != 1) {
-        return [mergeSort(left), mergeSort(right)]
+
+    let low = 1
+    let high = arr.length
+    let result = []
+    
+    if (low < high) {
+        let mid = high / 2
+        let left = arr.slice(0,mid)
+        let right = arr.slice(mid,high)
+
+        while (left.length > 1) {
+            return mergeSort(left)
+        }
+
+        while (right.length > 1) {
+            return mergeSort(right)
+        }
+
+        return [left,right]
     }
 
-    return arr
+    // return result
 
 }
 
