@@ -17,6 +17,10 @@ function merge(l, r) {
     let result = []
 
     while (l.length > 0 && r.length > 0) {
+        
+        // if left > right -- push right to result
+        // else push left to result
+
         l[0] > r[0]
         ? result.push(r.shift())
         : result.push(l.shift());
