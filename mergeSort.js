@@ -1,42 +1,28 @@
 // fibonacci merge sort
 function mergeSort(arr) {
 
-/* 
-helper function to sort a list
+    if (arr.length < 2) return arr
 
-return mergeFunc(arr1,arr2)
-
-*/
-    let layer2, layer3
-    function merge(arr1,arr2) {
-        let arr3 = []
-        return [arr1,arr2]
+    else {
+        let mid = Math.ceil(arr.length / 2)
+        let left = arr.slice(0, mid)
+        let right = arr.slice(mid)
+        return merge(mergeSort(left), mergeSort(right))
     }
 
-    let left,right
-    if (arr.length > 1) {
-        
-        let m = Math.floor(arr.length / 2)
-        const [left,right] = [arr.slice(0,m),arr.slice(m,arr.length)]
+}
 
-        while (left.length > 1 && right.length > 1) {
-            layer2 = [mergeSort(left),mergeSort(right)]
-            return layer2
-        }
+function merge(l, r) {
 
-        if ((left.length === 1) && (right.length === 1)) {
-            layer3 = [left[0],right[0]]
-            if (left > right) {
-                layer3.reverse()
-            }
-            // console.log(layer3[0],layer3[1])
-            return layer3
-        }
+    let result = []
 
+    while (l.length > 0 && r.length > 0) {
+        l[0] > r[0]
+        ? result.push(r.shift())
+        : result.push(l.shift());
     }
 
-    return arr
-    // return arr
+    return [...result, ...l, ...r]
 
 }
 
